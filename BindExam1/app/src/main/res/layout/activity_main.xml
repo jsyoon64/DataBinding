@@ -3,15 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.jsyoon.bindexam1.MainActivity">
+    <data>
+        <variable name="user" type="com.jsyoon.bindexam1.User"/>
+    </data>
 
-        <TextView
-            android:id="@+id/hello"
-            android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!" />
-    </RelativeLayout>
+            android:text="@{user.firstName}"/>
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.lastName}"/>
+    </LinearLayout>
+
 </layout>
