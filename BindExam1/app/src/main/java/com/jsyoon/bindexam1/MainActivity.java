@@ -23,5 +23,7 @@ public class MainActivity extends AppCompatActivity {
         //</data>
         // 위의 선언에 대한 generated setter class 이다
         binding.setUser(user);
+        User user1 = new User("Test1", "User1");
+        binding.setUser(user1);
     }
 }
