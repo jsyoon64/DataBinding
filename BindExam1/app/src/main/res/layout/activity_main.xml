@@ -5,6 +5,7 @@
 
     <data>
         <variable name="user" type="com.jsyoon.bindexam1.User"/>
+        <variable name="handlers" type="com.jsyoon.bindexam1.MyHandlers"/>
     </data>
 
     <LinearLayout
@@ -14,9 +15,16 @@
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{user.firstName}"/>
+
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{user.lastName}"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="메서드바인드"
+            android:onClick="@{handlers::onClickFriend}"/>
     </LinearLayout>
 
 </layout>

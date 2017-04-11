@@ -25,5 +25,8 @@ public class MainActivity extends AppCompatActivity {
         binding.setUser(user);
         User user1 = new User("Test1", "User1");
         binding.setUser(user1);
+
+        MyHandlers handlers = new MyHandlers();
+        binding.setHandlers(handlers);
     }
 }
