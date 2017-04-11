@@ -14,7 +14,14 @@ public class MainActivity extends AppCompatActivity {
 
         //setContentView(R.layout.activity_main);
         ActivityMainBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
-        binding.hello.setText("Hello World");
+        //binding.hello.setText("Hello World");
+        User user = new User("Test", "User");
 
+        //
+        // <data>
+        // <variable name="user" type="com.jsyoon.bindexam1.User"/>
+        //</data>
+        // 위의 선언에 대한 generated setter class 이다
+        binding.setUser(user);
     }
 }
