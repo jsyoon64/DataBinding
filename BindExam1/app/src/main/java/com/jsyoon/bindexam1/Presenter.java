@@ -13,7 +13,7 @@ public class Presenter {
     public Presenter(Context context) {
         this.context = context;
     }
-    public void onSaveClick(){
-        Toast.makeText(context, "리스너 바인딩 Event", Toast.LENGTH_SHORT).show();
+    public void onSaveClick(User user){
+        Toast.makeText(context, "리스너 바인딩 Event"+ " "+user.getFirstName(), Toast.LENGTH_SHORT).show();
     }
 }
