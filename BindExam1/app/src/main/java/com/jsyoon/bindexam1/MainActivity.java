@@ -28,5 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         MyHandlers handlers = new MyHandlers();
         binding.setHandlers(handlers);
+
+        Presenter presenter = new Presenter();
+        binding.setPresenter(presenter);
     }
 }

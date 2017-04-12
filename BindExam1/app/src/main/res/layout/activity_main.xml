@@ -6,6 +6,8 @@
     <data>
         <variable name="user" type="com.jsyoon.bindexam1.User"/>
         <variable name="handlers" type="com.jsyoon.bindexam1.MyHandlers"/>
+        <variable name="presenter" type="com.jsyoon.bindexam1.Presenter" />
+
     </data>
 
     <LinearLayout
@@ -24,7 +26,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="메서드바인드"
+
             android:onClick="@{handlers::onClickFriend}"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="리스너바인드"
+            android:onClick="@{() -> presenter.onSaveClick()}"/>
     </LinearLayout>
 
 </layout>
