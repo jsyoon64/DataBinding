@@ -26,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
         User user1 = new User("Test1", "User1");
         binding.setUser(user1);
 
-        MyHandlers handlers = new MyHandlers();
+        MyHandlers handlers = new MyHandlers(this);
         binding.setHandlers(handlers);
 
-        Presenter presenter = new Presenter();
+        Presenter presenter = new Presenter(this);
         binding.setPresenter(presenter);
     }
 }
