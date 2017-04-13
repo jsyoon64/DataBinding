@@ -12,24 +12,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Binding을 사용 할때 아래 대신 아래아래 코드를 사용한다.
         //setContentView(R.layout.activity_main);
+
+        // ActivityMainBinding 은 .xml file에 대한  generated class
         ActivityMainBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+
         //binding.hello.setText("Hello World");
         User user = new User("Test", "User");
 
-        //
-        // <data>
         // <variable name="user" type="com.jsyoon.bindexam1.User"/>
-        //</data>
         // 위의 선언에 대한 generated setter class 이다
         binding.setUser(user);
-        User user1 = new User("Test1", "User1");
-        binding.setUser(user1);
 
         MyHandlers handlers = new MyHandlers(this);
+
+        // setHandlers 는
+        // <variable name="handlers" type="com.jsyoon.bindexam1.MyHandlers"/> 에
+        // 대한 generated setter class
         binding.setHandlers(handlers);
 
         Presenter presenter = new Presenter(this);
+
+        // setPresenter
+        // <variable name="presenter" type="com.jsyoon.bindexam1.Presenter" /> 에
+        // 대한 generated setter class
         binding.setPresenter(presenter);
     }
 }
