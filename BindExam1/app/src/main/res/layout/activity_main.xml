@@ -1,39 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
-        <variable name="user" type="com.jsyoon.bindexam1.User"/>
-        <variable name="handlers" type="com.jsyoon.bindexam1.MyHandlers"/>
-        <variable name="presenter" type="com.jsyoon.bindexam1.Presenter" />
-
-    </data>
-
-    <LinearLayout
-        android:orientation="vertical"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvMovie"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{user.firstName}"/>
-
-        <TextView android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{user.lastName}"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="메서드바인드"
-
-            android:onClick="@{handlers::onClickFriend}"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="리스너바인드"
-            android:onClick="@{() -> presenter.onSaveClick(user)}"/>
-    </LinearLayout>
-
-</layout>
+        android:layout_height="match_parent" />
+</RelativeLayout>
