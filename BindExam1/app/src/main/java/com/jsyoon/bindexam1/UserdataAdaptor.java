@@ -36,7 +36,7 @@ public class UserdataAdaptor extends RecyclerView.Adapter<UserdataAdaptor.Bindin
     @Override
     public BindingHolder onCreateViewHolder(ViewGroup parent, int type) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.userdata_item, parent, false);
+                .inflate(R.layout.card_view_list, parent, false);
         BindingHolder holder = new BindingHolder(v);
         return holder;
     }
