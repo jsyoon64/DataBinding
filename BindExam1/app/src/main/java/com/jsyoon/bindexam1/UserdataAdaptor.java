@@ -38,6 +38,10 @@ public class UserdataAdaptor extends RecyclerView.Adapter<UserdataAdaptor.Bindin
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_view_list, parent, false);
         BindingHolder holder = new BindingHolder(v);
+
+        Presenter presenter = new Presenter(parent.getContext());
+        holder.getBinding().setVariable(BR.presenterb,presenter);
+
         return holder;
     }
 
