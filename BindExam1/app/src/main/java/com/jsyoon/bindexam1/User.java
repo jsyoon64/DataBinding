@@ -28,11 +28,11 @@ public class User extends BaseObservable {
     }
     public void setFirstName(String firstName) {
         this.firstName = firstName;
-        notifyPropertyChanged(BR.firstName);
+        notifyPropertyChanged(com.jsyoon.bindexam1.BR.firstName);
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
-        notifyPropertyChanged(BR.lastName);
+        notifyPropertyChanged(com.jsyoon.bindexam1.BR.lastName);
     }
 
 }
