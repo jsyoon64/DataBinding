@@ -14,7 +14,7 @@ public class Presenter {
         this.context = context;
     }
     public void onSaveClick(User user){
-        user.setFirstName("리스너");
         Toast.makeText(context, "리스너 바인딩 Event"+ " "+user.getFirstName(), Toast.LENGTH_SHORT).show();
+        user.setFirstName("리스너");
     }
 }
