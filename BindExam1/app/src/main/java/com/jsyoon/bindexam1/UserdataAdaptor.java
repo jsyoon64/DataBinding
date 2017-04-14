@@ -1,6 +1,7 @@
 package com.jsyoon.bindexam1;
 
 import android.databinding.DataBindingUtil;
+import android.databinding.ObservableArrayList;
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,7 +14,7 @@ import java.util.List;
  */
 
 public class UserdataAdaptor extends RecyclerView.Adapter<UserdataAdaptor.BindingHolder> {
-    private List<User> users;
+    private ObservableArrayList<User> users;
 
     public static class BindingHolder extends RecyclerView.ViewHolder {
         private ViewDataBinding binding;
@@ -28,7 +29,7 @@ public class UserdataAdaptor extends RecyclerView.Adapter<UserdataAdaptor.Bindin
         }
     }
 
-    public UserdataAdaptor(List<User> users) {
+    public UserdataAdaptor(ObservableArrayList<User> users) {
         this.users = users;
     }
 
@@ -43,7 +44,7 @@ public class UserdataAdaptor extends RecyclerView.Adapter<UserdataAdaptor.Bindin
     @Override
     public void onBindViewHolder(BindingHolder holder, int position) {
         final User aUser = users.get(position);
-        holder.getBinding().setVariable(com.jsyoon.bindexam1.BR.user, aUser);
+        holder.getBinding().setVariable(BR.user, aUser);
         holder.getBinding().executePendingBindings();
     }
 
