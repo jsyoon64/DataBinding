@@ -15,6 +15,6 @@ public class Presenter {
     }
     public void onSaveClick(User user){
         Toast.makeText(context, "리스너 바인딩 Event"+ " "+user.getFirstName(), Toast.LENGTH_SHORT).show();
-        user.setFirstName("리스너");
+        //user.setFirstName("리스너");
     }
 }

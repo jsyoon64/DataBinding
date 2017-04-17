@@ -1,13 +1,14 @@
 package com.jsyoon.bindexam1;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableArrayList;
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import java.util.List;
 
 /**
  * Created by ShinwooEND on 2017-04-13.
@@ -15,6 +16,8 @@ import java.util.List;
 
 public class UserdataAdaptor extends RecyclerView.Adapter<UserdataAdaptor.BindingHolder> {
     private ObservableArrayList<User> users;
+    private Presenter presenter;
+    private Context root_context;
 
     public static class BindingHolder extends RecyclerView.ViewHolder {
         private ViewDataBinding binding;
@@ -29,8 +32,12 @@ public class UserdataAdaptor extends RecyclerView.Adapter<UserdataAdaptor.Bindin
         }
     }
 
-    public UserdataAdaptor(ObservableArrayList<User> users) {
+    public UserdataAdaptor(Context context, ObservableArrayList<User> users) {
         this.users = users;
+        root_context = context;
+
+        presenter = new Presenter(root_context);
+        Log.d("Adaptor","UserdataAdaptor");
     }
 
     @Override
@@ -39,9 +46,9 @@ public class UserdataAdaptor extends RecyclerView.Adapter<UserdataAdaptor.Bindin
                 .inflate(R.layout.card_view_list, parent, false);
         BindingHolder holder = new BindingHolder(v);
 
-        Presenter presenter = new Presenter(parent.getContext());
-        holder.getBinding().setVariable(BR.presenterb,presenter);
+        holder.getBinding().setVariable(BR.presenterb, presenter);
 
+        Log.d("Adaptor","onCreateViewHolder");
         return holder;
     }
 
@@ -50,6 +57,7 @@ public class UserdataAdaptor extends RecyclerView.Adapter<UserdataAdaptor.Bindin
         final User aUser = users.get(position);
         holder.getBinding().setVariable(BR.user, aUser);
         holder.getBinding().executePendingBindings();
+        Log.d("Adaptor","onBindViewHolder");
     }
 
     @Override

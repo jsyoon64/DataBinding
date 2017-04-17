@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         addusers();
 
-        UserdataAdaptor adapter = new UserdataAdaptor(users1);
+        UserdataAdaptor adapter = new UserdataAdaptor(this,users1);
         rvUserlist.setAdapter(adapter);
     }
 
