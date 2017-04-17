@@ -12,18 +12,13 @@ import android.widget.Toast;
 
 public class MyPresenter {
     private Context context;
-    private Navigate navi;
 
-    public interface Navigate {
-        void navigateToSecondScreen();
-    }
-
-    public MyPresenter(Context context, Navigate navi) {
-        this.navi = navi;
+    public MyPresenter(Context context) {
         this.context = context;
     }
 
     public void onSaveClick(User user){
-        navi.navigateToSecondScreen();
+        Intent intent = new Intent(context, SecondActivity.class);
+        context.startActivity(intent);
     }
 }

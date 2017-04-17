@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.jsyoon.bindexam1.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity implements MyPresenter.Navigate {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,26 +19,17 @@ public class MainActivity extends AppCompatActivity implements MyPresenter.Navig
         // ActivityMainBinding 은 .xml file에 대한  generated class
         ActivityMainBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
 
-        //binding.hello.setText("Hello World");
         User user = new User("Test", "User");
 
         // <variable name="user" type="com.jsyoon.bindexam1.User"/>
         // 위의 선언에 대한 generated setter class 이다
         binding.setUser(user);
 
-        MyPresenter presenter = new MyPresenter(this, this);
+        MyPresenter presenter = new MyPresenter(this);
 
         // setPresenter
         // <variable name="presenter" type="com.jsyoon.bindexam1.Presenter" /> 에
         // 대한 generated setter class
         binding.setPresenter(presenter);
-    }
-
-
-    // Presenter.NavigationCommand interface
-    @Override
-    public void navigateToSecondScreen() {
-        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-        startActivity(intent);
     }
 }
