@@ -4,12 +4,11 @@
     tools:context="com.jsyoon.bindexam1.SecondActivity">
 
     <data>
-        <variable
-            name="user"
-            type="com.jsyoon.bindexam1.User" />
+        <variable name="presenter" type="com.jsyoon.bindexam1.SecAPresenter" />
     </data>
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -19,5 +18,10 @@
             android:text="Second Screen"
             android:textSize="25dp" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="달력화면"
+            android:onClick="@{() -> presenter.onCalendarClick()}"/>
     </LinearLayout>
 </layout>
