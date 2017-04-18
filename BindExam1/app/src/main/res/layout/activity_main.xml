@@ -5,7 +5,7 @@
 
     <data>
         <variable name="user" type="com.jsyoon.bindexam1.User"/>
-        <variable name="presenter" type="com.jsyoon.bindexam1.MyPresenter" />
+        <variable name="presenter" type="com.jsyoon.bindexam1.MainAPresenter" />
 
     </data>
 
