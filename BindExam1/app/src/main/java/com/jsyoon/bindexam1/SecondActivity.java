@@ -11,6 +11,9 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final ActivitySecondBinding activity2Binding = DataBindingUtil.setContentView(this, R.layout.activity_second);
+        ActivitySecondBinding activity2Binding = DataBindingUtil.setContentView(this, R.layout.activity_second);
+
+        SecAPresenter presenter = new SecAPresenter(this);
+        activity2Binding.setPresenter(presenter);
     }
 }
