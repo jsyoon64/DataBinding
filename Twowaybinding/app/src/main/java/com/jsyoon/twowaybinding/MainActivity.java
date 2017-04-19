@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         // layout에 있는 echo 변수 set
         binding.setEcho(echo);
+        binding.edittext1.addTextChangedListener(echo.watcher);
+        binding.edittext2.addTextChangedListener(echo.watcher);
     }
 
     @Override

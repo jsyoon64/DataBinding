@@ -18,13 +18,14 @@
         tools:context=".MainActivity">
 
         <EditText
+            android:id="@+id/edittext1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Text 1"
-            android:text="@{echo.text}"
-            android:addTextChangedListener="@{echo.watcher}"/>
+            android:text="@{echo.text}"/>
 
         <EditText
+            android:id="@+id/edittext2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Text 2"
