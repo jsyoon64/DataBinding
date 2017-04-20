@@ -4,6 +4,9 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
+        jackOptions {
+            enabled true
+        }
         applicationId "com.jsyoon.twowaybinding"
         minSdkVersion 24
         targetSdkVersion 25
@@ -19,6 +22,10 @@ android {
     }
     dataBinding {
         enabled = true
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
     }
 }
 

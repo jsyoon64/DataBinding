@@ -4,6 +4,8 @@ import android.databinding.ObservableField;
 import android.text.Editable;
 import android.text.TextWatcher;
 
+import com.jsyoon.twowaybinding.utils.ObservableString;
+
 import java.util.Objects;
 import java.util.Observable;
 
@@ -12,13 +14,10 @@ import java.util.Observable;
  */
 
 public class Echo {
-    public ObservableField<String> text = new ObservableField<>();
+    public ObservableString text = new ObservableString();
 
-    public TextWatcher watcher = new TextWatcherAdapter() {
-        @Override public void afterTextChanged(Editable s) {
-            if (!Objects.equals(text.get(), s.toString())) {
-                text.set(s.toString());
-            }
-        }
-    };
+    public Echo() { }
+
+    public void buttonClick() {
+    }
 }

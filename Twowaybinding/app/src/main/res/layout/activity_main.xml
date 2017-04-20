@@ -4,10 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-        <variable
-            name="echo"
-            type="com.jsyoon.twowaybinding.Echo"/>
+        <variable name="echo" type="com.jsyoon.twowaybinding.Echo"/>
     </data>
 
     <LinearLayout
@@ -22,14 +19,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Text 1"
-            android:text="@{echo.text}"/>
+            app:text="@{echo.text}"/>
 
         <EditText
             android:id="@+id/edittext2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Text 2"
-            android:text="@{echo.text}"/>
+            app:text="@{echo.text}"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:onClick="@{echo.buttonClick}"/>
     </LinearLayout>
 </layout>
