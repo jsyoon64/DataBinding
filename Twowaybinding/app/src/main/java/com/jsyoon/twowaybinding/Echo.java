@@ -4,21 +4,14 @@ import android.databinding.ObservableField;
 import android.text.Editable;
 import android.text.TextWatcher;
 
-import java.util.Objects;
-import java.util.Observable;
+import com.jsyoon.twowaybinding.BindUtil.ObservableString;
+import com.jsyoon.twowaybinding.BindUtil.TextWatcherAdapter;
 
-/**
- * Created by ShinwooEND on 2017-04-18.
- */
+import java.util.Objects;
 
 public class Echo {
-    public ObservableField<String> text = new ObservableField<>();
+    public ObservableString text = new ObservableString();
 
-    public TextWatcher watcher = new TextWatcherAdapter() {
-        @Override public void afterTextChanged(Editable s) {
-            if (!Objects.equals(text.get(), s.toString())) {
-                text.set(s.toString());
-            }
-        }
-    };
+    public void buttonClick() {
+    }
 }
