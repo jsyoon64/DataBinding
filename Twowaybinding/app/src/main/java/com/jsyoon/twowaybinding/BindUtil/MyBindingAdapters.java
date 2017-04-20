@@ -13,17 +13,15 @@ import com.jsyoon.twowaybinding.R;
 
 public class MyBindingAdapters {
 
-    /*
-    @BindingAdapter({"app:error"})
-    public static void bindValidationError(TextInputLayout textInputLayout, int errorRes) {
-        if (errorRes != 0) {
-            textInputLayout.setError(textInputLayout.getResources().getString(errorRes));
-        } else {
-            textInputLayout.setError(null);
-        }
+    private MyBindingAdapters() {
+        throw new AssertionError();
     }
-*/
 
+    @SuppressWarnings("unchecked")
+    /*
+     * 여기서 {"app:text"} 는 layout에 있는(activity_main.xml 의 app:text="@{echo.text}" 을 표시
+     * 또한 아래 어댑터는 text가 바뀌었을 경우 자동 update 동작을 수행
+     */
     @BindingAdapter({"app:text"})
     public static void bindEditText(EditText view, final ObservableString observableString) {
         if (view.getTag(R.id.binded) == null) {
