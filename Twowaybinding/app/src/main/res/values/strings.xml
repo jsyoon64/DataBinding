@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Twowaybinding</string>
+    <item name="binded" type="id" />
 </resources>
