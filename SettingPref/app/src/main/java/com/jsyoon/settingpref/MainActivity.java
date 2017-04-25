@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    
+
     /**
      * Methods for setting up the menu
      **/
@@ -26,5 +26,17 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.setting, menu);
         /* Return true so that the visualizer_menu is displayed in the Toolbar */
         return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            Intent startSettingsActivity = new Intent(this, SettingActivity.class);
+            startActivity(startSettingsActivity);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
