@@ -8,6 +8,7 @@ import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
+import android.widget.Toast;
 
 /**
  * Created by ShinwooEND on 2017-04-25.
@@ -15,7 +16,7 @@ import android.support.v7.preference.PreferenceScreen;
 
 // Implement OnSharedPreferenceChangeListener
 public class SettingFragment extends PreferenceFragmentCompat implements
-        SharedPreferences.OnSharedPreferenceChangeListener {
+        SharedPreferences.OnSharedPreferenceChangeListener , Preference.OnPreferenceChangeListener{
 
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
@@ -36,16 +37,50 @@ public class SettingFragment extends PreferenceFragmentCompat implements
             Preference p = prefScreen.getPreference(i);
             findListPreferenceNSetSummary(sharedPreferences, p);
         }
+
+        // Add the OnPreferenceChangeListener specifically to the EditTextPreference
+        Preference preference = findPreference(getString(R.string.text_size_key));
+        preference.setOnPreferenceChangeListener(this);
     }
 
     // Override onSharedPreferenceChanged and, if it is not a checkbox preference,
     // call setPreferenceSummary on the changed preference
+    // is triggered after any value is saved to the SharedPreferences file.
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 // Figure out which preference was changed
         Preference preference = findPreference(key);
         findListPreferenceNSetSummary(sharedPreferences, preference);
     }
+
+
+    // is triggered before a value is saved to the SharedPreferences file.
+    // it can prevent an invalid update to a preference.
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        Toast error = Toast.makeText(getContext(), "Please select a number between 1 and 45", Toast.LENGTH_SHORT);
+
+        // if EditTextPreference key
+        if(preference.getKey().equals(getString(R.string.text_size_key)))
+        {
+            String stringSize = (String) newValue;
+            try {
+                float size = Float.parseFloat(stringSize);
+                // If the number is outside of the acceptable range, show an error.
+                if (size > 45 || size <= 0) {
+                    error.show();
+                    return false;
+                }
+            } catch (NumberFormatException nfe) {
+                // If whatever the user entered can't be parsed to a number, show an error
+                error.show();
+                return false;
+            }
+        }
+        return true;
+    }
+
+
 
     private void findListPreferenceNSetSummary(SharedPreferences sharedPreferences, Preference preference){
         if (null != preference) {
