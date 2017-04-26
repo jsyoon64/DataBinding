@@ -20,4 +20,9 @@
         android:entryValues="@array/color_option_labels"
         android:key="color1"
         android:title="Shape Color"/>
+
+    <EditTextPreference
+        android:defaultValue="@string/text_size_default"
+        android:key="@string/text_size_key"
+        android:title="@string/text_size_label" />
 </PreferenceScreen>

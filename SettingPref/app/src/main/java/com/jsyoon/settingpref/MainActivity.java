@@ -39,6 +39,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         int ckey = getColorIntFromColorString(sharedPreferences.getString("color1", getString(R.string.color_red)));
         textcol.setTextColor(ckey);
 
+        float minSize = Float.parseFloat(sharedPreferences.getString(getString(R.string.text_size_key),
+                getString(R.string.text_size_default)));
+
+        /*int minSize = Integer.parseInt(sharedPreferences.getString(getString(R.string.text_size_key),
+                getString(R.string.text_size_default)));*/
+
+        textcol.setTextSize(minSize);
+
         // Register the listener
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
@@ -89,6 +97,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         } else if (key.equals("color1")) {
             int ckey = getColorIntFromColorString(sharedPreferences.getString(key, getString(R.string.color_red)));
             textcol.setTextColor(ckey);
+        } else if (key.equals(getString(R.string.text_size_key))) {
+            float minSize = Float.parseFloat(sharedPreferences.getString(getString(R.string.text_size_key),
+                    getString(R.string.text_size_default)));
+            textcol.setTextSize(minSize);
         }
     }
 
