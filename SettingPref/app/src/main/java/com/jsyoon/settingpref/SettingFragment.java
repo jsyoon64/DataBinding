@@ -3,6 +3,7 @@ package com.jsyoon.settingpref;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.preference.CheckBoxPreference;
+import android.support.v7.preference.EditTextPreference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
@@ -49,7 +50,7 @@ public class SettingFragment extends PreferenceFragmentCompat implements
     private void findListPreferenceNSetSummary(SharedPreferences sharedPreferences, Preference preference){
         if (null != preference) {
             // Updates the summary for the preference
-            if (preference instanceof ListPreference) {
+            if ((preference instanceof ListPreference) || (preference instanceof EditTextPreference)) {
                 String value = sharedPreferences.getString(preference.getKey(), "");
                 setPreferenceSummary(preference, value);
             }
@@ -75,6 +76,10 @@ public class SettingFragment extends PreferenceFragmentCompat implements
                 // Set the summary to that label
                 listPreference.setSummary(listPreference.getEntries()[prefIndex]);
             }
+        }
+        else if (preference instanceof EditTextPreference) {
+            EditTextPreference edittextPreference = (EditTextPreference) preference;
+            edittextPreference.setSummary(value);
         }
     }
 
