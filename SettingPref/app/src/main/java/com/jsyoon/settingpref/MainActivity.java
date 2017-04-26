@@ -42,6 +42,16 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 
+    // Deregister the listener
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Unregister VisualizerActivity as an OnPreferenceChangedListener to avoid any memory leaks.
+        PreferenceManager.getDefaultSharedPreferences(this)
+                .unregisterOnSharedPreferenceChangeListener(this);
+    }
+
+
     /**
      * Methods for setting up the menu
      **/
@@ -81,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
-    public int getColorIntFromColorString(String newColorKey) {
+    private int getColorIntFromColorString(String newColorKey) {
 
         @ColorInt
         int textColor;
