@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.CheckedTextView;
 import android.widget.TextView;
 
+
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private CheckedTextView setting1, setting2,setting3;
