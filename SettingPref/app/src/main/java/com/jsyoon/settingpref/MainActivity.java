@@ -2,6 +2,9 @@ package com.jsyoon.settingpref;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.support.annotation.ColorInt;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.preference.PreferenceManager;
@@ -9,10 +12,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.CheckedTextView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private CheckedTextView setting1, setting2,setting3;
+    private TextView textcol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +27,16 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         setting1 = (CheckedTextView) findViewById(R.id.setting1);
         setting2 = (CheckedTextView) findViewById(R.id.setting2);
         setting3 = (CheckedTextView) findViewById(R.id.setting3);
+        textcol = (TextView) findViewById(R.id.textView2);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         setting1.setChecked(sharedPreferences.getBoolean("setting1",true));
         setting2.setChecked(sharedPreferences.getBoolean("setting2",true));
         setting3.setChecked(sharedPreferences.getBoolean("setting3",true));
+
+        int ckey = getColorIntFromColorString(sharedPreferences.getString("color1", getString(R.string.color_red)));
+        textcol.setTextColor(ckey);
 
         // Register the listener
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
@@ -66,6 +75,25 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             setting2.setChecked(sharedPreferences.getBoolean(key,true));
         } else if (key.equals("setting3")) {
             setting3.setChecked(sharedPreferences.getBoolean(key,true));
+        } else if (key.equals("color1")) {
+            int ckey = getColorIntFromColorString(sharedPreferences.getString(key, getString(R.string.color_red)));
+            textcol.setTextColor(ckey);
         }
+    }
+
+    public int getColorIntFromColorString(String newColorKey) {
+
+        @ColorInt
+        int textColor;
+
+        if (newColorKey.equals(getString(R.string.color_red))) {
+            textColor = ContextCompat.getColor(this, R.color.myRed);
+        } else if (newColorKey.equals(getString(R.string.color_blue))) {
+            textColor = ContextCompat.getColor(this, R.color.myBlue);
+        } else {
+            textColor = ContextCompat.getColor(this, R.color.myGreen);
+        }
+
+        return textColor;
     }
 }
