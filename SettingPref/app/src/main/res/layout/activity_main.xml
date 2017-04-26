@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.jsyoon.settingpref.MainActivity">
+    tools:context="com.jsyoon.settingpref.MainActivity"
+    android:weightSum="1">
 
     <TextView
         android:layout_width="match_parent"
@@ -31,5 +32,13 @@
         android:layout_height="wrap_content"
         android:text="setting3"
         android:checkMark="?android:attr/listChoiceIndicatorMultiple"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="35dp"
+        android:text="Text Color Example" />
 
 </LinearLayout>
