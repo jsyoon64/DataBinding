@@ -7,7 +7,7 @@
 
         <variable
             name="echo"
-            type="com.jsyoon.twowaybinding.Echo"/>
+            type="com.jsyoon.twowaybinding.Echo" />
     </data>
 
     <LinearLayout
@@ -21,18 +21,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Text 1"
-            app:text="@{echo.text}"/>
+            app:text="@{echo.text}" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Text 2"
-            app:text="@{echo.text}"/>
+            app:text="@{echo.text}" />
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:onClick="@{echo.buttonClick}"/>
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:onClick="@{echo.buttonClick}"
+            tools:clickable="true" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="버튼을 클릭하면 text1,2 값이 변한다. " />
     </LinearLayout>
 </layout>
