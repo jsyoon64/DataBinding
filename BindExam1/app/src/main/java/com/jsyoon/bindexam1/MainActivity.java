@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
         ActivityMainBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
         init();
-        binding.setUsers(users1);
     }
 
     private void init() {

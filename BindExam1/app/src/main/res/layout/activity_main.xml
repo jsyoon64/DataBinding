@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data>
-        <import type="android.databinding.ObservableArrayList" />
-        <import type="android.view.View" />
-        <import type="com.jsyoon.bindexam1.User" />
-
-        <variable
-            name="users"
-            type="ObservableArrayList&lt;User>" />
-    </data>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
