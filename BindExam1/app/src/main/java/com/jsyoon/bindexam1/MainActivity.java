@@ -11,7 +11,8 @@ import com.jsyoon.bindexam1.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView rvUserlist;
+    // case 1
+    //RecyclerView rvUserlist;
     ObservableArrayList<User> users1;
 
     @Override
@@ -20,18 +21,26 @@ public class MainActivity extends AppCompatActivity {
 
         ActivityMainBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
         init();
+
+        // case 2
+        UserdataAdaptor adapter = new UserdataAdaptor(this,users1);
+        binding.rvUserlists.setLayoutManager(new LinearLayoutManager(this));
+        binding.rvUserlists.setAdapter(adapter);
+        // --
     }
 
     private void init() {
         users1 = new ObservableArrayList<User>();
 
-        rvUserlist = (RecyclerView) findViewById(R.id.rvUserlists);
-        rvUserlist.setLayoutManager(new LinearLayoutManager(this));
+        // case 1
+        //rvUserlist = (RecyclerView) findViewById(R.id.rvUserlists);
+        //rvUserlist.setLayoutManager(new LinearLayoutManager(this));
 
         addusers();
 
-        UserdataAdaptor adapter = new UserdataAdaptor(this,users1);
-        rvUserlist.setAdapter(adapter);
+        // case 1
+        //UserdataAdaptor adapter = new UserdataAdaptor(this,users1);
+        //rvUserlist.setAdapter(adapter);
     }
 
     private void addusers()
